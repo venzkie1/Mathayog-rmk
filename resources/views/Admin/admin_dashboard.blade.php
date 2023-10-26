@@ -9,8 +9,8 @@
 <body>
     This is the Admin Dashboard
     <br><br>
-    <a href="{{route('admin.approved.skills_map')}}">View Approved Skills Map</a><br><br>
-
+    {{-- <a href="{{route('admin.approved.skills_map')}}">View Approved Skills Map</a><br><br> --}}
+    <a href="{{route('approved.skills_map')}}">View Approved Skills Map</a><br><br>
 
     <form method="POST" action="{{ route('logout') }}">
         @csrf
