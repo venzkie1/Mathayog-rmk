@@ -1,0 +1,171 @@
+.dialog-container {
+    display: flex;
+    align-items: center;
+    width: 900px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.dialog {
+    background-color: white;
+    padding: 35px;
+    flex: 1;
+    border-radius: 5px;
+    height: 250px; 
+    border-radius: 37px;
+    border: 3px;
+    box-shadow: 10px 10px 0px 0px #00000012;
+}
+
+.dialog h3 {
+    font-family: 'Omnes Bold', sans-serif;
+    font-weight: 700;
+    color: #4B4B4B;
+    font-size: 3rem;
+}
+
+.guide {
+    margin-left: 20px; /* Adjust the margin to create the desired spacing between the dialog and the guide image */
+}
+
+.guide_image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Define the animation */
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Adjust the distance the image moves up */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Animation to the guide image */
+.animated {
+    animation: moveUpDown 3.5s infinite;
+}
+
+.card {
+    width: 230px;
+    height: 300px;
+    border-radius: 20px;
+    margin: 0 auto;
+    box-shadow: 10px 10px 0px 0px transparent;
+    transition: transform 1.5s;
+    border: 7px solid transparent;
+    filter: grayscale(100%);
+    box-shadow: 10px 10px 0px 0px #00000012;
+
+}
+
+.card.selected {
+    transform: scale(1.1);
+    border: 7px solid #859CFF;
+    filter: grayscale(0%);
+}
+
+.selected {
+    border: 7px solid #859CFF;
+  }  
+
+.card img{
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.card h5{
+    font-family: 'Omnes Bold', sans-serif;
+    font-weight: 700;
+    color: #4B4B4B;
+}
+
+.card p{
+    font-family: 'Omnes Regular', sans-serif;
+    font-weight: 500;
+    color: #4B4B4B;
+}
+
+.pili_avatar{
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+.mathayog_logo {
+    float: left;
+    padding-left: 50px;
+    height: auto;
+}
+
+.container{
+    background-color: #6CD7F5;
+    background-image: url("/images/avatar_bg.png");
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    max-width: 100%;
+    height: 100vh;
+}
+
+.patuloy {
+    float: right;
+    width: 192px;
+    height: 60px;
+    margin-top: 10px;
+    margin-right: 100px;
+    border-radius: 20px;
+    background: #859CFF;
+    box-shadow: 0px 6px 0px 0px #7187E4;
+    font-family: 'Omnes Regular', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #ffff;
+    display: none;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+.patuloy:hover{
+    color: #ffff;
+}
+
+.pili_avatar_container {
+    display: flex;
+    align-items: center;
+}
+
+.col-md-6.dialog-box {
+    width: 652.78px;
+    height: 107.38px;
+    top: 118.62px;
+    margin-left: -300px;
+}
+
+.dialog-content {
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 0px 0px #00000012;
+}
+
+.dialog-content h5{
+    font-family: 'Omnes Regular', sans-serif;
+    color: #4B4B4B;
+    font-weight: 700;
+}
+
+.dialog-content p{
+    font-family: 'Omnes Regular', sans-serif;
+    font-weight: 500;
+}
+

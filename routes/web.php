@@ -6,6 +6,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContentCreatorController;
 use App\Http\Controllers\CurriculumLeadController;
 use App\Http\Controllers\SearchController;
+use App\Models\PlaceQuestion;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +20,73 @@ use App\Http\Controllers\SearchController;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
+
+
+
+//_______________________________________________________________________________________________________
+// Welcome
+Route::get('/welcome', function () {
+    return view('welcome');
+})->middleware(['auth', 'verified'])->name('welcome');
+
+// Avatar
+Route::get('/avatar', function () {
+    return view('avatar');
+})->middleware(['auth', 'verified'])->name('avatar');
+
+// pet / companion dialog
+Route::get('/companion', function () {
+    return view('companion_dialog');
+})->middleware(['auth', 'verified'])->name('companion');
+
+// Pet
+Route::get('/pet', function () {
+    return view('pet');
+})->middleware(['auth', 'verified'])->name('pet');
+
+// questions
+Route::get('/questions', function () {
+    return view('questions');
+})->middleware(['auth', 'verified'])->name('questions');
+
+// choose plane / map
+Route::get('/choose_plane', function () {
+    return view('choose_plane');
+})->middleware(['auth', 'verified'])->name('choose_plane');
+
+// placement
+Route::get('/placement', function () {
+    return view('placement');
+})->middleware(['auth', 'verified'])->name('placement');
+
+// flight
+Route::get('/flight', function () {
+    return view('flight');
+})->middleware(['auth', 'verified'])->name('flight');
+
+// placement questions
+// Route::get('/placement_question', function () {
+//     return view('placement_question');
+// })->middleware(['auth', 'verified'])->name('placement_question');
+Route::get('/placement_question', function () {
+    $placeQuestions = PlaceQuestion::all();
+    return view('placement_question', compact('placeQuestions'));
+})->middleware(['auth', 'verified'])->name('placement_question');
+
+
+
+//_______________________________________________________________________________________________________
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
