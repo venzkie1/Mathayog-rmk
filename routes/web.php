@@ -5,8 +5,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContentCreatorController;
 use App\Http\Controllers\CurriculumLeadController;
+use App\Http\Controllers\place_QuestionController;
 use App\Http\Controllers\SearchController;
 use App\Models\PlaceQuestion;
+use App\Models\PlacementQuestion;
 
 
 /*
@@ -71,15 +73,21 @@ Route::get('/flight', function () {
     return view('flight');
 })->middleware(['auth', 'verified'])->name('flight');
 
-// placement questions
+
 // Route::get('/placement_question', function () {
 //     return view('placement_question');
 // })->middleware(['auth', 'verified'])->name('placement_question');
-Route::get('/placement_question', function () {
-    $placeQuestions = PlaceQuestion::all();
-    return view('placement_question', compact('placeQuestions'));
-})->middleware(['auth', 'verified'])->name('placement_question');
+// Route::get('/place_question', function () {
+    // $placeQuestions = PlaceQuestion::with('placeQuestions')->get();
+    // $PlacementQuestion = PlacementQuestion::with('placeQuestions')->get()->toArray();
+    // dd($placeQuestions);
+    // return view('place_question', compact('place_QuestionController'));
+// })->middleware(['auth', 'verified'])->name('place_question');
 
+// place questions
+Route::get('/place_question', [place_QuestionController::class, 'getPlaceQuestions'])
+    ->middleware(['auth', 'verified'])
+    ->name('place_question');
 
 
 //_______________________________________________________________________________________________________

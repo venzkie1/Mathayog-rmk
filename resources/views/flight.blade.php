@@ -52,7 +52,7 @@
     <script>
 
         function goToPlacementQuestion() {
-                    window.location.href = '/placement_question';
+                    window.location.href = '/place_question';
                 }
         // get and display the selected avatar
         var selectedAvatarInfo = sessionStorage.getItem('selectedAvatar');

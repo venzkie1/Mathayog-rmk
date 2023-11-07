@@ -110,6 +110,31 @@ h2{
     color: grey;
 }
 
+.answer-choice p {
+    max-width: 100%; /* Set the maximum width for the <p> tag */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis (...) for long text */
+}
+
+.answer-choice a {
+    text-decoration: underline; /* Remove underlines from links */
+    color: blue; /* Set link text color */
+    display: block;
+    text-align: center;
+}
+
+/* Center the iframe within its container */
+.iframe-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center;
+    cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+    transition: width 0.3s, height 0.3s; /* Add a smooth transition effect for width and height */
+  }
+  
 .dialog-container {
     background-size: cover;
     width: 100%;

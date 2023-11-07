@@ -14,5 +14,6 @@ class PlaceQuestion extends Model
     public function placeQuestions()
     {
         return $this->hasMany(PlaceChoices::class);
-    }
+    }    
+    
 }

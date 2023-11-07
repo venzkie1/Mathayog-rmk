@@ -7,7 +7,7 @@
     <title>Mathayog</title>
     <link rel="icon" href={{asset('images/mathayog-kite.png')}} type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href={{asset('/css/placement_question.css')}}>
+    <link rel="stylesheet" href={{asset('/css/place_question.css')}}>
 </head>
 <body>
         <div class="container">
@@ -38,22 +38,28 @@
                 <div class="quiz-header">
                     @if ($placeQuestions->count() > 0)
                         @php
-                            $questionsToShow = $placeQuestions->take(10); // Get the first 10 questions
-                            $currentQuestionIndex = 0; // Initialize the question index
+                            $questionsToShow = $placeQuestions;
                         @endphp
-                        <h5 id="numbered_question">Question {{ $currentQuestionIndex + 1 }} of {{ $questionsToShow->count() }}</h5>
+                        <h5 id="numbered_question">Question 1 of {{ $questionsToShow->count() }}</h5>
+            
                         <h2 id="question">{{ $questionsToShow[0]->place_question_title }}</h2>
-                    
                         <div class="answer-choices">
                             @foreach ($questionsToShow[0]->placeQuestions as $choice)
                                 <div class="answer-choice" id="{{ $choice->choices_letter }}_choice" data-answer="{{ $choice->choices_letter }}">
-                                    <p id="{{ $choice->choices_letter }}_text">{{ $choice->choices_letter }}. {{ $choice->choices }}</p>
+                                    @if ($choice->choices !== null)
+                                        <p id="{{ $choice->choices_letter }}_text">{{ $choice->choices_letter }}. {{ $choice->choices }}</p>
+                                    @else
+                                        {{-- <h1>TEST</h1>
+                                        <p id="{{ $choice->choices_letter }}_text">{{ $choice->choices_letter }}. {{ $choice->choices_img }}</p>
+                                        <iframe src="{{ $choice->choices_img }}" width="100%" height="100%" title="Embedded Content" class="iframe-link"></iframe> --}}
+                                    @endif
                                 </div>
                             @endforeach
                         </div>
                     @endif
                 </div>
-            </div>                     
+            </div>
+                                
         </div>
         <img src="{{ asset('images/guide.png')}}" class="guide_image animated" id="guide_image" alt="guide_image">
         <div class="dialog" id="dialog">
@@ -64,6 +70,14 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{asset('js/placement_questions.js')}}"></script>
-
+    <script>
+        let currentQuestionIndex = 0;
+        let questionsToShow = @json($placeQuestions);
+        console.log('questions to show:',questionsToShow)
+        let correctAnswers = @json($placeQuestions->pluck('correct_answer'));
+        let correctAnswer = correctAnswers[currentQuestionIndex];
+        console.log('currentQuestionIndex:',currentQuestionIndex);
+        console.log('correctAnswers:',correctAnswers);
+    </script>
 </body>
 </html>
